@@ -11,7 +11,7 @@ const PostForm = () => {
         setPosts({ ...posts, [name]: value });
     };
     const renderFields = (label) => (
-        <div>
+        <div className="input-container">
             <label>{label}</label>
             <input
                 type="text"
@@ -22,8 +22,17 @@ const PostForm = () => {
             />
         </div>
     );
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        alert("form submitted");
+        setPosts({
+            title: "",
+            body: "",
+        });
+    };
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             {renderFields("Title")}
             {renderFields("Body")}
             <button type="submit">submit</button>
