@@ -18,3 +18,14 @@ export const createPost = async (newPost) => {
     });
     return resposne.json();
 };
+
+export const updatePost = async (updatedPost) => {
+    const resposne = await fetch(`http://localhost:3000/posts/${updatedPost.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedPost),
+    });
+    return resposne.json();
+};

@@ -21,7 +21,7 @@ const AddPost = () => {
     return (
         <div>
             <h2 className="add-new">Add new Post</h2>
-            <PostForm addPost={addPost} />
+            <PostForm onSubmit={addPost} />
         </div>
     );
 };
