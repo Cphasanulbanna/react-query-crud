@@ -38,15 +38,36 @@ body {
 form {
     display: flex;
     position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
+    top: 50px;
+    right: 50px;
     flex-direction: column;
     padding: 60px;
     max-width: 500px;
     width: 100%;
     border: 2px solid #111;
     border-radius: 20px;
+}
+
+.add-new {
+    text-align: right;
+    padding-right: 50px;
+}
+
+.btn-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.post {
+    border: 1px solid #6e6e6e;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex-wrap: wrap;
+    overflow: hidden;
+    padding: 15px;
 }
 
 button {

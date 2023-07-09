@@ -4,7 +4,7 @@ import PostForm from "./PostForm";
 const AddPost = () => {
     return (
         <div>
-            <h2>Add new Post</h2>
+            <h2 className="add-new">Add new Post</h2>
             <PostForm />
         </div>
     );
