@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-const PostForm = () => {
-    const [posts, setPosts] = useState({
+const PostForm = ({ addPost }) => {
+    const [post, setPost] = useState({
         title: "",
         body: "",
     });
 
     const handleChange = (e) => {
         const { value, name } = e.target;
-        setPosts({ ...posts, [name]: value });
+        setPost({ ...post, [name]: value });
     };
     const renderFields = (label) => (
         <div className="input-container">
@@ -17,7 +17,7 @@ const PostForm = () => {
                 type="text"
                 name={label.toLowerCase()}
                 placeholder={`Enter ${label.toLowerCase()}`}
-                value={posts[label.toLowerCase()]}
+                value={post[label.toLowerCase()]}
                 onChange={handleChange}
             />
         </div>
@@ -25,8 +25,8 @@ const PostForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert("form submitted");
-        setPosts({
+        addPost(post);
+        setPost({
             title: "",
             body: "",
         });
@@ -35,7 +35,12 @@ const PostForm = () => {
         <form onSubmit={handleSubmit}>
             {renderFields("Title")}
             {renderFields("Body")}
-            <button type="submit">submit</button>
+            <button
+                className="btn"
+                type="submit"
+            >
+                submit
+            </button>
         </form>
     );
 };

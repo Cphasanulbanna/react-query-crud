@@ -2,6 +2,7 @@ import React from "react";
 import AddPost from "../components/AddPost";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPosts } from "../../api/Posts";
+import { Link } from "react-router-dom";
 
 const PostLists = () => {
     const {
@@ -14,10 +15,9 @@ const PostLists = () => {
         queryFn: fetchPosts,
     });
 
-    console.log(posts, "posts");
-
     if (isLoading) return "loading...";
     if (isError) return `Error: ${error.message}`;
+
     return (
         <div>
             <AddPost />
@@ -28,11 +28,16 @@ const PostLists = () => {
                         className="post"
                         key={post.id}
                     >
-                        <h1>{post.title}</h1>
+                        <Link to={`/post/${post.id}`}>{post.title}</Link>
                         <p>{post.body}</p>
                         <div className="btn-box">
-                            <button>edit</button>
-                            <button>delete</button>
+                            <Link
+                                className="btn"
+                                to={`/post/${post.id}/edit`}
+                            >
+                                edit
+                            </Link>
+                            <button className="btn">delete</button>
                         </div>
                     </div>
                 ))}
